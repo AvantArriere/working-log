@@ -1,0 +1,1 @@
+CREATE DATABASE `working-log` CHARACTER SET utf8;

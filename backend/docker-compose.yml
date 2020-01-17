@@ -1,0 +1,22 @@
+version: "3.7"
+services:
+    woring-log-db:
+        build:
+            context: ./DB
+            dockerfile: Dockerfile
+        environment:
+            MYSQL_DATABASE: working-log
+            MYSQL_ROOT_PASSWORD: avantarriere
+            MYSQL_USER: root
+        ports:
+            - 3306:3306
+        networks:
+            - backend
+        restart: on-failure
+        volumes:
+            - ~/working-log-db:/var/lib/mysql
+        command: ['mysqld', '--character-set-server=utf8', '--collation-server=utf8_general_ci']
+
+networks:
+    backend:
+        
